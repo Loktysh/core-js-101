@@ -207,25 +207,9 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(width, height) {
-  const rectangle = [...Array(width).keys()].map(() => [...Array(height - 2).keys()]);
-  const first = [...Array(width).keys()].map((c, i) => (i !== 0 && i !== width - 1 ? '─' : false));
-  first[0] = '┌';
-  first[width - 1] = '┐\n';
-  const last = [...Array(width).keys()].map((c, i) => (i !== 0 && i !== width - 1 ? '─' : false));
-  last[0] = '└';
-  last[width - 1] = '┘';
-  rectangle.unshift(first);
-  rectangle.push(last);
-  console.log('Cur: ', rectangle);
-  // rectangle.map((c) => { c.length === 0 ? false : console.log(''); });
-  const reg = [...Array(width - 2).keys()].reduce((res) => `${res} `, '');
-  console.log('Rec: ', rectangle);
-  rectangle.map((c) => (c[0] === 0 ? (c[0] = '|', c.push(reg), c[c.length] = '|\n') : false));
-  e = rectangle.reduce(((acc, c) => acc + c.join('')), '');
-  return e;
+function getRectangleString() {
+
 }
-console.log(getRectangleString(3, 3));
 
 
 /**
